@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Super AI Bros. - Alpha v2.1</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="main-wrapper">
+        <h1>Super AI Bros.</h1>
+        <div id="gameContainer">
+            <canvas id="gameCanvas" width="800" height="600"></canvas>
+            <div id="pauseButton" class="pause-button"></div>
+        </div>
+        <div class="instructions">
+            <p>Use as <b>Setas</b> para mover e a <b>Barra de Espaço</b> para pular (você tem pulo duplo!).</p>
+            <p><b>Seta para Baixo</b> para atravessar plataformas.</p>
+            <p>Pressione <b>P</b> para pausar e <b>R</b> para reiniciar a qualquer momento.</p>
+            <p>Colete as moedas!</p>
+        </div>
+    </div>
+
+    <div id="modalOverlay" class="modal-overlay"></div>
+    <div id="patchNotesContainer" class="patch-notes">
+        <button id="closePatchNotes" class="close-button">&times;</button>
+        
+        <h2>Patch Notes (Alpha v2.1)</h2>
+        <p class="patch-date">10 nov, 2025</p>
+        
+        <ul>
+            <li>Refinamento dos Controles e Movimento ("Game Feel"):
+                <ul>
+                    <li>A velocidade do jogador foi ajustada para um melhor controle e ritmo de jogo.</li>
+                    <li>Implementado um sistema de pulo de altura variável: a altura do pulo agora depende de quanto tempo a barra de espaço é pressionada.</li>
+                    <li>Adicionado um sistema de "Pulo Triplo": realizar dois pulos rápidos no chão ativa um terceiro pulo mais alto e estiloso, recompensando jogadores habilidosos.</li>
+                </ul>
+            </li>
+            <li>Balanceamento e Qualidade de Vida (QoL):
+                <ul>
+                    <li>Implementado um sistema de checkpoint: após derrotar o chefe da Fase 1, o jogador agora reiniciará o jogo diretamente na Fase 2, salvando seu progresso principal.</li>
+                    <li>O sistema de geração de pacotes de vida foi reformulado para ser mais justo, removendo o limite de spawns por fase.</li>
+                    <li>A chance de recompensa nas Janelas da Fase 2 foi aumentada para 70%, tornando a exploração mais gratificante.</li>
+                    <li>O valor das moedas foi rebalanceado para 10 pontos para ajustar o ritmo de progressão do jogo após a introdução de novas mecânicas.</li>
+                </ul>
+            </li>
+            <li>Nova Funcionalidade: Baús de Tesouro (Fase 1):
+                <ul>
+                    <li>Adicionados Baús de Tesouro interativos na Fase 1, que podem aparecer em plataformas longas e seguras.</li>
+                    <li>Cada baú possui um resultado pré-determinado (70% de chance de recompensa em moedas, 30% de chance de armadilha), adicionando um novo elemento de sorte e risco.</li>
+                </ul>
+            </li>
+            <li>Correções de Bugs Críticos e Polimento:
+                <ul>
+                    <li>Corrigido um bug que impedia a aparição de inimigos "Patrol" na Fase 2 sob condições normais de jogo.</li>
+                    <li>Resolvido um erro crítico (<code>ReferenceError</code>) que podia causar o travamento do jogo durante a coleta de itens.</li>
+                    <li>Corrigida a lógica de colisão para garantir que o jogador sofra dano ao tocar nas laterais dos espinhos.</li>
+                    <li>Resolvido um bug crítico onde o jogador podia atravessar paredes altas após sofrer dano dos espinhos em seu topo.</li>
+                    <li>Eliminado um bug raro na Fase 2 que fazia plataformas de pedra se comportarem como plataformas de nuvem.</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    
+    <div id="pointingArrow">
+        <div class="arrow-body"><div class="arrow-line"></div><div class="arrow-line"></div></div>
+        <div class="arrow-head"></div>
+    </div>
+    <div id="versionLabel" class="version-label">Alpha v2.1</div>
+
+    <button id="cheatMenuButton"></button>
+    <div id="cheatInfoBox">
+        <p><b>T:</b> Pular para Fase 2</p>
+        <p><b>Numpad 7:</b> +100 Pontos</p>
+        <p><b>Numpad 8:</b> Travar Pontos (On/Off)</p>
+        <p><b>Numpad 9:</b> +1 Vida</p>
+        <p><b>Numpad 4:</b> Hitboxes (On/Off)</p>
+        <p><b>Numpad 5:</b> Invencibilidade (On/Off)</p>
+        <p><b>Numpad 6:</b> Danificar Chefe</p>
+    </div>
+
+    <script src="player.js"></script> 
+    <script src="platform.js"></script> 
+    <script src="enemy.js"></script>
+    <script src="boss.js"></script>
+    <script src="item.js"></script>
+    <script src="scenery.js"></script>
+    
+    <script src="game.js"></script>
+
+</body>
+</html>
